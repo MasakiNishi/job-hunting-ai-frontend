@@ -14,4 +14,7 @@ module.exports = {
   },
   rules: {}, // Maybe create rules similar to PEP8
 };
+<<<<<<< HEAD
  
+=======
+>>>>>>> 0cf8e6f (Test push for new frontend environment setup.)

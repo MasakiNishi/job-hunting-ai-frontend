@@ -15,7 +15,11 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload. Hey what's
           up!!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa What's up!!! hahahasdaa
+<<<<<<< HEAD
           asdfsdafsad asdfasdfs yesasodfkhsd;lfkhsdfl;ksdahfl;sadfhs
+=======
+          asdfasdfs yesasodfkhsd;lfkhsdfl;ksdahfl;sadfhs
+>>>>>>> 0cf8e6f (Test push for new frontend environment setup.)
         </p>
         <a
           className="App-link"
