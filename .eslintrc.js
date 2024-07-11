@@ -14,3 +14,4 @@ module.exports = {
   },
   rules: {}, // Maybe create rules similar to PEP8
 };
+ 
