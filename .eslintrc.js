@@ -1,3 +1,9 @@
+/* Job Hunting AI Tool: .eslintrc.js
+Members: Masaki Nishi, Alexander Wong, Susan Joh, and Christian McKinnon
+Project Parter: Professor Gates
+CS 467 Portfolio Project
+Description: configures the settings, rules and environment for ESLint */
+
 module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["html"],
