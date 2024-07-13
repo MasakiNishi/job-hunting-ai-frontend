@@ -34,6 +34,3 @@ This repository contains code written in TypeScript with React that integrates w
 
 ESLint with Prettier for TypeScript.
 
-### `npm start`
-
-After running, please open [http://localhost:8080](http://localhost:8080) to view the application in the browser.
