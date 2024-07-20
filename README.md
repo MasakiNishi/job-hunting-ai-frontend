@@ -1,6 +1,6 @@
 # Job Hunting AI Project Tool
 
-**Members:** Masaki Nishi, Alexander Wong, Susan Joh, and Christian McKinnon
+**Members:** Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
 Capstone Project for OSU CS 467
 
 ### job-hunting-ai-frontend Repository:
@@ -33,4 +33,3 @@ This repository contains code written in TypeScript with React that integrates w
 ### Linter:
 
 ESLint with Prettier for TypeScript.
-

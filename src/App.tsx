@@ -1,33 +1,54 @@
 /* Job Hunting AI Tool: App.tsx
-Masaki Nishi, Alexander Wong, Susan Joh, and Christian McKinnon
-Professor Gates
+Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+Project Partner: Professor Gates
 CS 467 Portfolio Project */
 
+/* App.tsx represents the "driver" file of our website that imports all pages
+and components to facilitate the the job hunt for our users */
+
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import About from "./pages/About";
+import Help from "./pages/Help";
+import Links from "./pages/Links";
+import JobResults from "./pages/JobResults";
+import Navigation from "./components/Navigation";
 import "./App.css";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload. <br></br>This is a
-          really long line to test whether the linter will successfully reformat
-          it.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <BrowserRouter>
+      <header>
+        {/* Let's add the jobs favicon and banner */}
+        <div className="header-container">
+          <h1>
+            <img src="jhaifavicon.png" alt="My favicon" />
+            Job Hunting AI Web Tool
+            <a href="/help">
+              <label className="getHelp"> </label>
+            </a>
+          </h1>
+        </div>
       </header>
-    </div>
+      <div className="App">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/links" element={<Links />} />
+          <Route path="/job-results" element={<JobResults />} />
+        </Routes>
+      </div>
+      <footer>
+        <p>
+          &copy; 2024 Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander
+          Wong
+        </p>
+      </footer>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
