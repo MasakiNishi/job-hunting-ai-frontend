@@ -1,10 +1,15 @@
 /* Job Hunting AI Tool: index.tsx
-Members: Masaki Nishi, Alexander Wong, Susan Joh, and Christian McKinnon
-Project Parter: Professor Gates
+Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+Project Partner: Professor Gates
 CS 467 Portfolio Project */
 
+/**
+ * index.js imports necessary components for app, handles the root element
+ * setup, and renders the application in strict mode.
+ */
 import React from "react";
 import ReactDOM from "react-dom/client";
+//import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";

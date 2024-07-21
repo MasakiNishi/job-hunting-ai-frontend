@@ -1,6 +1,6 @@
 /* Job Hunting AI Tool: .eslintrc.js
 Members: Masaki Nishi, Alexander Wong, Susan Joh, and Christian McKinnon
-Project Parter: Professor Gates
+Project Partner: Professor Gates
 CS 467 Portfolio Project
 Description: configures the settings, rules and environment for ESLint */
 

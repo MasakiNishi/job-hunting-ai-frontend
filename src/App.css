@@ -1,43 +1,140 @@
 /* Job Hunting AI Tool: App.css
-Members: Masaki Nishi, Alexander Wong, Susan Joh, and Christian McKinnon
-Project Parter: Professor Gates
+Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+Project Partner: Professor Gates
 CS 467 Portfolio Project */
 
-.App {
-  text-align: center;
+/* App.css contains the global styles applied to each page of our project */
+
+/* Custom Colors */
+:root {
+  --black: #000000; /* Standard Black */
+  --blue: #209CEE; /* From Figma PT, but could change */
+  --white: #FFFFFF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*  --- Viewport ---  */
+body {       
+background-color: var(--blue);
+background-size: cover;
+background-attachment: fixed;
+background-position: top left;
+background-repeat:no-repeat;
+color: var(--black);
+font-family: 'Commissioner', sans-serif; 
+font-size: 1em;
+line-height: 1.2;
+margin: 0 auto; /* Should collapse with window */
+padding: 0;
+max-width: 960px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+ /* Global styles for headers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Commissioner', sans-serif;
+} 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background-color: var(--white);
+  font-family: 'Alice', sans-serif; 
+  margin: 10px 0 0 0 ;
+  padding: .5%;
+  font-size: 1.7em;
+  font-weight:bold;
+  height: 120px;
   display: flex;
-  flex-direction: column;
+  justify-content: left;
+  width:auto;
   align-items: center;
+}
+
+header img {
+  width: 1em;
+  height: 1em;
+  margin-left: 50px;
+  margin-right: 70px;
+  margin-top: 25px;
+}
+
+/* HEADER adding HELP ICON */
+.getHelp {
+  padding-left: 80px; 
+  background-image: url('images/get_help.png'); 
+  background-size: 55px; 
+  background-repeat: no-repeat;
+  background-position: 5px center; 
+  margin-left: 50px;
+}
+
+/* Hover settings for the getHelp class */
+.getHelp:hover {
+  cursor: pointer;
+}
+
+/*  ---NAVBAR---  */
+nav {
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: 'Alice', sans-serif;
+}
+/* Styles for Nav Bar */
+nav a {
+  border: 1.5px solid var(--black);
+  border-radius: 5px 5px  5px 5px;
+  color: black;
+  background-color: #FFFFFF;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1;
+  margin-right: 3px;
+  padding: 8px 50px;
+  text-decoration: none;
+  vertical-align: middle;
+  width: 240px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Styles for when hovering over nav bar CHANGE LATER */
+nav a:hover {
+  background-color: skyblue;
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styles for Outer Container on all pages */
+.outer-container {
+  background-color: var(--white);
+  justify-content: center;
+  align-items: center;
+  padding: 2.5%; 
+  border-radius: 15px; /* Rounded corners might add to others */
+  border: 1.5px solid var(--black);
+  margin: auto;
+  text-align: center;
+  max-width: 910px;
+  width: 100%;
+  font-size: 1.3em;
+}
+/* PARAGRAPH FOR INSTRUCTIONS */
+.instructions {
+  text-align: center;
+  font-size: .9em;
+}
+
+/* PARAGRAPH FOR ABOUT PAGE */
+.about-para {
+  text-align: left;
+  font-size: .9em;
+}
+
+/* Style and formatting for the footer */
+footer {
+  background-color: var(--white);
+  margin: 20px 0 20px 0 ;
+  padding: 1.5px;
+  border: 2px solid var(--white);
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.4em;
 }
