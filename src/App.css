@@ -1,9 +1,13 @@
 /* Job Hunting AI Tool: App.css
-Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
-Project Partner: Professor Gates
-CS 467 Portfolio Project */
+ * Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+ * Project Partner: Professor Gates
+ * CS 467 Portfolio Project */
 
 /* App.css contains the global styles applied to each page of our project */
+
+/* ---Google Font Imports--- */
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
 
 /* Custom Colors */
 :root {
@@ -28,8 +32,20 @@ padding: 0;
 max-width: 960px;
 }
 
+/* Style Settings for Lists (OL & UL) for JobResults Page */
+ol {
+  margin-left: 1em;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+  list-style-position: inside;
+}
+
  /* Global styles for headers */
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-family: 'Commissioner', sans-serif;
 } 
 
@@ -51,8 +67,18 @@ header img {
   width: 1em;
   height: 1em;
   margin-left: 50px;
-  margin-right: 70px;
+  margin-right: 80px;
   margin-top: 25px;
+}
+
+.header-container {
+  font: "Alice", sans-serif;
+  color: var(--blue);
+  /* This creates a black shadow around the text */
+  text-shadow: -1px -1px 0 var(--black),  
+                 1px -1px 0 var(--black),  
+                 -1px 1px 0 var(--black),  
+                 1px 1px 0 var(--black);
 }
 
 /* HEADER adding HELP ICON */
@@ -62,7 +88,7 @@ header img {
   background-size: 55px; 
   background-repeat: no-repeat;
   background-position: 5px center; 
-  margin-left: 50px;
+  margin-left: 60px;
 }
 
 /* Hover settings for the getHelp class */
@@ -84,12 +110,12 @@ nav {
 nav a {
   border: 1.5px solid var(--black);
   border-radius: 5px 5px  5px 5px;
-  color: black;
-  background-color: #FFFFFF;
-  font-size: 1.1em;
+  color: var(--blue);
+  background-color: var(--white);
+  font-size: 1.3em;
   font-weight: bold;
   line-height: 1;
-  margin-right: 3px;
+  margin-inline: 1px;
   padding: 8px 50px;
   text-decoration: none;
   vertical-align: middle;
@@ -108,7 +134,7 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   padding: 2.5%; 
-  border-radius: 15px; /* Rounded corners might add to others */
+  border-radius: 15px; /* Rounded corners added here */
   border: 1.5px solid var(--black);
   margin: auto;
   text-align: center;
@@ -128,13 +154,121 @@ nav a:hover {
   font-size: .9em;
 }
 
+/* Style settings for the submission button */
+button {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 0% 3% 0 3%;
+  border: 1.5px solid var(--black);
+  font-weight: bold;
+  font-family: "Alice";
+  font-size: 1.2em;
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 220px;
+  /* This creates a black shadow around the text */
+  text-shadow: -1px -1px 0 var(--black),  
+                1px -1px 0 var(--black),  
+                -1px 1px 0 var(--black),  
+                1px 1px 0 var(--black);
+}
+
+/* Hover styles that invert the colors */
+button:hover{
+  background-color: var(--black);
+  color: skyblue;
+  cursor: pointer;
+}
+
+/* Style Placement for Buttons on HomePage */
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.button-container button:first-child {
+  width: 300px;
+  margin-left: 300px;
+}
+
+.button-container button:last-child {
+  width: 90px;
+  margin-right: 15px;
+}
+
+/* Styles for Textbox */
+.textbox-container {
+  width: 640px;
+  height: 70px; 
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  justify-self: center;
+}
+
+/* STYLES for POP-UP Button */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-size: .9em;
+}
+
+.modal-content p {
+  margin-bottom: 5px;
+}
+
+.modal-content button {
+  align-items: center;
+}
+
+/* Styles for Job Results "Based on Your..." */
+.input-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px
+}
+
+.checkbox {
+  margin-left: 8px;
+}
+
 /* Style and formatting for the footer */
 footer {
   background-color: var(--white);
-  margin: 20px 0 20px 0 ;
+  margin: 20px 0 20px 0;
   padding: 1.5px;
   border: 2px solid var(--white);
   text-align: center;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }

@@ -1,27 +1,65 @@
 /* Job Hunting AI Tool: JobResults.tsx
-Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
-Project Partner: Professor Gates
-CS 467 Portfolio Project */
+ * Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+ * Project Partner: Professor Gates
+ * CS 467 Portfolio Project */
 
 /* JobResults.tsx represents page that will ultimately display job results
 to our users and will receive a list of personalized jobs from the backend. */
 
 import React from "react";
-import { useNavigate } from "react-router-dom";
-//import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-// Assign Functional Component for Go Back button
+// Assign Functional Component for assigning data received from backend
 const JobResults: React.FC = () => {
-  const navigate = useNavigate();
-  //const location = useLocation();
-  //const { jobRankings } = location.state || { jobRankings: [] };
+  const location = useLocation();
+  const { inputInfo, jobRankings } = location.state || {};
+  // An array to avoid printing the textInput
+  const inputDetails = [
+    { label: "Job Type", value: inputInfo.jobType },
+    { label: "Location", value: inputInfo.location },
+    { label: "Sector", value: inputInfo.sector },
+    { label: "Experience", value: inputInfo.experience },
+  ];
 
+  // Do no proceed if no inputInfo or jobRankings are found
+  if (!inputInfo || !jobRankings) {
+    return (
+      <div>No data available. Please go back and submit the form again.</div>
+    );
+  }
+
+  // Tsx code to display the job results to user
   return (
-    <div className="results-container">
-      {/* For now we will fill with text and navigate to HomePage*/}
-      <h1>Your Job Rankings</h1>
-      <p> Will work on this later</p>
-      <button onClick={() => navigate("/")}>Back to Form</button>
+    <div className="outer-container">
+      <h2>Your Personalized Results</h2>
+      <p>
+        <strong>Based on your selections:</strong>
+      </p>{" "}
+      <br></br>
+      {/* Reproduce the inputData here from the inputDetails array*/}
+      <div className="input-details">
+        {inputDetails.map((detail, index) => (
+          <span key={index} className="detail-item">
+            <strong>{detail.label}:&nbsp; </strong>
+            {Array.isArray(detail.value)
+              ? detail.value.join(", ")
+              : detail.value}
+            <input type="checkbox" checked readOnly className="checkbox" />
+          </span>
+        ))}
+      </div>
+      <p>
+        <strong>
+          Please find your 5 ranked job listing recommendations below!
+        </strong>
+      </p>
+      {/* A temporary means to populate the data until AI integegration*/}
+      <ol>
+        {jobRankings.map((job: any, index: number) => (
+          <li key={index}>&nbsp;{job.title}</li>
+        ))}
+      </ol>
+      <button onClick={() => window.history.back()}>Back to Form</button>
     </div>
   );
 };
