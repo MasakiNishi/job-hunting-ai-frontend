@@ -1,7 +1,7 @@
 /* Job Hunting AI Tool: HomePage.tsx
- * Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
- * Project Partner: Professor Gates
- * CS 467 Portfolio Project */
+Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+Project Partner: Professor Gates
+CS 467 Portfolio Project */
 
 /* HomePage.tsx represents the "My Search" page and contains the form that collects
 our user data that is sent to the Backend via the axios HTTP client. */
@@ -98,11 +98,10 @@ const HomePage: React.FC = () => {
   const handleConfirm = async () => {
     try {
       const info = { jobType, location, sector, experience, textInput };
-      // Set our PORT to 5001 in line with the Cloud configuration
-      const response = await axios.post(
-        "http://127.0.0.1:5001/api/submit",
-        info,
-      );
+      // Set the PORT for the Flask backend to 5001
+      const backendAPI = process.env.REACT_APP_BACKEND_API;
+      // Set our PORT to match the Cloud configuration
+      const response = await axios.post(`${backendAPI}/api/submit`, info);
       const data = response.data;
       // A confirmation message that will print to browser inspect window
       console.log("Jobs info transferred to Flask backend:", info);
