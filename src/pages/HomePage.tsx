@@ -1,7 +1,7 @@
 /* Job Hunting AI Tool: HomePage.tsx
-Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
-Project Partner: Professor Gates
-CS 467 Portfolio Project */
+ * Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+ * Project Partner: Professor Gates
+ * CS 467 Portfolio Project */
 
 /* HomePage.tsx represents the "My Search" page and contains the form that collects
 our user data that is sent to the Backend via the axios HTTP client. */
