@@ -1,7 +1,7 @@
 /* Job Hunting AI Tool: Help.tsx
-Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
-Project Partner: Professor Gates
-CS 467 Portfolio Project */
+ * Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+ * Project Partner: Professor Gates
+ * CS 467 Portfolio Project */
 
 /* Help.tsx is a page that helps users understand how to use our website
 through a list of FAQs. */

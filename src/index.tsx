@@ -1,7 +1,7 @@
 /* Job Hunting AI Tool: index.tsx
-Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
-Project Partner: Professor Gates
-CS 467 Portfolio Project */
+ * Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+ * Project Partner: Professor Gates
+ * CS 467 Portfolio Project */
 
 /**
  * index.js imports necessary components for app, handles the root element

@@ -1,7 +1,7 @@
 /* Job Hunting AI Tool: Navigation.tsx
-Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
-Project Partner: Professor Gates
-CS 467 Portfolio Project */
+ * Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+ * Project Partner: Professor Gates
+ * CS 467 Portfolio Project */
 
 /* Naviation.tsx implements the 3-button navigation bar which is imported
 to App.tsx. */

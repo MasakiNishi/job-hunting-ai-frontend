@@ -1,7 +1,7 @@
 /* Job Hunting AI Tool: HomePage.tsx
-Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
-Project Partner: Professor Gates
-CS 467 Portfolio Project */
+ * Members: Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander Wong
+ * Project Partner: Professor Gates
+ * CS 467 Portfolio Project */
 
 /* HomePage.tsx represents the "My Search" page and contains the form that collects
 our user data that is sent to the Backend via the axios HTTP client. */
@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ConfirmationModal from "../components/ConfirmationModal";
 
+// Create variables for user input as str or arrays that are sent to backend
 const HomePage: React.FC = () => {
   const [jobType, setJobType] = useState<string[]>([]);
   const [location, setLocation] = useState<string[]>([]);
@@ -21,8 +22,7 @@ const HomePage: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  // FORM SUBMISSION VARIABLES / FUNCTIONAL COMPONENTS
-  // Functional component to handle data in Job Type Check Box
+  // Functional component to handle state change in Job Type Check Box
   const handleJobTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setJobType((prevJobType) =>
@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
     );
   };
 
-  // Functional component to handle data in Location Check Box
+  // Functional component to handle state changein Location Check Box
   const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setLocation((prevLocation) =>
@@ -42,7 +42,7 @@ const HomePage: React.FC = () => {
     );
   };
 
-  // Functional component to handle data in Sector Check Box
+  // Functional component to handle state change in Sector Check Box
   const handleSectorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSector((prevSector) =>
@@ -52,12 +52,13 @@ const HomePage: React.FC = () => {
     );
   };
 
-  // Functional component to handle data in Work Experience Check Box
+  // Functional component to handle state change in Work Experience Check Box
   const handleExperienceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setExperience(e.target.value);
   };
 
-  // Functional component to ensure the required data is inputted by user
+  /* Functional component to ensure the required data is inputted by user,
+   * otherwise an error message presents at the bottom of the page. */
   const validateForm = () => {
     if (jobType.length === 0) {
       setErrorMessage("Please select at least one job type.");
@@ -79,27 +80,39 @@ const HomePage: React.FC = () => {
     return true;
   };
 
-  // Functional component to handle data transfer to backend
+  // Functional component that prompts Confirmation Pop-up Window
   const handleSubmit = () => {
+    // Checks if any question is unanswered
     if (!validateForm()) {
       setShowModal(false);
-      return;
+    } else {
+      // Only display pop-up when questions = answered
+      setShowModal(true);
     }
-    const data = { jobType, location, sector, experience, textInput };
-    axios
-      .post("/submit", data)
-      .then((response: { data: any }) => {
-        navigate("/job-results", { state: { jobRankings: response.data } });
-      })
-      .catch((error: any) => {
-        console.error("Failed to submit form due to error.", error);
-      });
+    return;
   };
 
-  // Variable for confirming submission
-  const handleConfirm = () => {
+  /* handleConfirm is an async component which takes in the user input
+   * data from the below form and sends it to the Flask backend via
+   * a try-catch statement */
+  const handleConfirm = async () => {
+    try {
+      const info = { jobType, location, sector, experience, textInput };
+      // Set the PORT for the Flask backend to 5001
+      const backendAPI = process.env.REACT_APP_BACKEND_API;
+      // Set our PORT to match the Cloud configuration
+      const response = await axios.post(`${backendAPI}/api/submit`, info);
+      const data = response.data;
+      // A confirmation message that will print to browser inspect window
+      console.log("Jobs info transferred to Flask backend:", info);
+      navigate("/job-results", {
+        state: { inputInfo: info, jobRankings: data },
+      });
+    } catch (error: any) {
+      // An error message in the event the form submission fails
+      console.error("Failed to submit form due to error.", error);
+    }
     setShowModal(false);
-    handleSubmit();
   };
 
   // Variable for canceling submission
@@ -125,28 +138,28 @@ const HomePage: React.FC = () => {
           checked={jobType.includes("Full time")}
           onChange={handleJobTypeChange}
         />
-        Full time
+        Full time&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Part time"
           checked={jobType.includes("Part time")}
           onChange={handleJobTypeChange}
         />
-        Part time
+        Part time&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Freelance"
           checked={jobType.includes("Freelance")}
           onChange={handleJobTypeChange}
         />
-        Freelance
+        Freelance&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Internship"
           checked={jobType.includes("Internship")}
           onChange={handleJobTypeChange}
         />
-        Internship
+        Internship&nbsp;&nbsp;&nbsp;
         <p>
           <strong>
             2.) Please tell us about your job location preferences.
@@ -158,28 +171,28 @@ const HomePage: React.FC = () => {
           checked={location.includes("Remote")}
           onChange={handleLocationChange}
         />
-        Remote
+        Remote&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="On-site"
           checked={location.includes("On-site")}
           onChange={handleLocationChange}
         />
-        On-site
+        On-site&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Hybrid"
           checked={location.includes("Hybrid")}
           onChange={handleLocationChange}
         />
-        Hybrid
+        Hybrid&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Any"
           checked={location.includes("Any")}
           onChange={handleLocationChange}
         />
-        Any
+        Any&nbsp;&nbsp;&nbsp;
         <p>
           <strong>3.) Which of the following sector interests you most?</strong>
         </p>
@@ -189,42 +202,42 @@ const HomePage: React.FC = () => {
           checked={sector.includes("Technology")}
           onChange={handleSectorChange}
         />
-        Technology
+        Technology&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Finance"
           checked={sector.includes("Finance")}
           onChange={handleSectorChange}
         />
-        Finance
+        Finance&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Healthcare"
           checked={sector.includes("Healthcare")}
           onChange={handleSectorChange}
         />
-        Healthcare
+        Healthcare&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Retail"
           checked={sector.includes("Retail")}
           onChange={handleSectorChange}
         />
-        Retail
+        Retail&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Energy"
           checked={sector.includes("Energy")}
           onChange={handleSectorChange}
         />
-        Energy
+        Energy&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Education"
           checked={sector.includes("Education")}
           onChange={handleSectorChange}
         />
-        Education
+        Education&nbsp;&nbsp;&nbsp;
         <p>
           <strong>4.) How would you characterize your work experience?</strong>
         </p>
@@ -236,7 +249,7 @@ const HomePage: React.FC = () => {
             checked={experience === "Entry-level"}
             onChange={handleExperienceChange}
           />
-          Entry-level
+          Entry-level&nbsp;&nbsp;&nbsp;
         </label>
         <label>
           <input
@@ -246,7 +259,7 @@ const HomePage: React.FC = () => {
             checked={experience === "1-3 years"}
             onChange={handleExperienceChange}
           />
-          1-3 years
+          1-3 years&nbsp;&nbsp;&nbsp;
         </label>
         <label>
           <input
@@ -256,7 +269,7 @@ const HomePage: React.FC = () => {
             checked={experience === "3-5 years"}
             onChange={handleExperienceChange}
           />
-          3-5 years
+          3-5 years&nbsp;&nbsp;&nbsp;
         </label>
         <label>
           <input
@@ -266,7 +279,7 @@ const HomePage: React.FC = () => {
             checked={experience === "5+ years"}
             onChange={handleExperienceChange}
           />
-          5+ years
+          5+ years&nbsp;&nbsp;&nbsp;
         </label>
         <p>
           <strong>
@@ -275,12 +288,14 @@ const HomePage: React.FC = () => {
           </strong>
         </p>
         <textarea
+          className="textbox-container"
           value={textInput}
           onChange={(e) => setTextInput(e.target.value)}
           maxLength={200}
+          placeholder="Limit: 200 characters"
         />
-        <div>
-          <button type="button" onClick={() => setShowModal(true)}>
+        <div className="button-container">
+          <button type="button" onClick={() => handleSubmit()}>
             Submit
           </button>
           <button
