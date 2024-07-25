@@ -28,7 +28,7 @@ steps:
       - >-
         --labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,gcb-trigger-id=$_TRIGGER_ID
       - "--region=$_DEPLOY_REGION"
-      - "--set-env-vars=BACKEND_API=$_BACKEND_API,FRONTEND_URL=$_FRONTEND_URL"
+      - "--set-env-vars=REACT_APP_BACKEND_API=$_REACT_APP_BACKEND_API,REACT_APP_FRONTEND_URL=$_REACT_APP_FRONTEND_URL"
       - "--quiet"
     id: Deploy
     entrypoint: gcloud
