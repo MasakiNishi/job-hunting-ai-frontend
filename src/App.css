@@ -3,13 +3,13 @@
  * Project Partner: Professor Gates
  * CS 467 Portfolio Project */
 
-/* App.css contains the global styles applied to each page of our project */
+/* App.css applies the global styles to each page of our project */
 
-/* ---Google Font Imports--- */
+/* --- Google Font Imports --- */
 @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
 
-/* Custom Colors */
+/* --- Custom Colors --- */
 :root {
   --black: #000000; /* Standard Black */
   --blue: #209CEE; /* From Figma PT, but could change */
@@ -42,6 +42,8 @@ li {
   margin-bottom: 0.5em;
   padding-left: 0.5em;
   list-style-position: inside;
+  font-size: .9em;
+  margin-bottom: 1em;
 }
 
  /* Global styles for headers */
@@ -61,6 +63,8 @@ header {
   justify-content: left;
   width:auto;
   align-items: center;
+  border-radius: 15px; /* Rounded corners added here */
+  border: 1.5px solid var(--black);
 }
 
 header img {
@@ -133,7 +137,7 @@ nav a:hover {
   background-color: var(--white);
   justify-content: center;
   align-items: center;
-  padding: 2.5%; 
+  padding: 2.5%;
   border-radius: 15px; /* Rounded corners added here */
   border: 1.5px solid var(--black);
   margin: auto;
@@ -245,11 +249,21 @@ button:hover{
   align-items: center;
 }
 
-/* Styles for Job Results "Based on Your..." */
+/* Styles for JobResultsPage Input "Based on Your..." */
 .input-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-size: .9em;
+}
+
+/* Styles JobResults Page: job-results" */
+.job-results {
+  text-align: left;
+  font-size: 1em;
+  justify-content: left;
+  text-indent: -1em;
+  margin: 0px 50px 0px 50px;
 }
 
 .detail-item {
@@ -271,4 +285,6 @@ footer {
   text-align: center;
   font-weight: bold;
   font-size: 1.3em;
+  border-radius: 15px; /* Rounded corners added here */
+  border: 1.5px solid var(--black);
 }
