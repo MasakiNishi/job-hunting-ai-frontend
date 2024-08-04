@@ -14,11 +14,10 @@ import ConfirmationModal from "../components/ConfirmationModal";
 // Create variables for user input as str or arrays that are sent to backend
 const HomePage: React.FC = () => {
   const [jobType, setJobType] = useState<string[]>([]);
-  const [location, setLocation] = useState<string[]>([]);
+  const [arrangement, setArrangement] = useState<string[]>([]);
   const [sector, setSector] = useState<string[]>([]);
   const [experience, setExperience] = useState<string>("");
   const [textInput, setTextInput] = useState<string>("");
-  const [errorMessage, setErrorMessage] = useState<string>("");
   const [showModal, setShowModal] = useState<boolean>(false);
   const navigate = useNavigate();
 
@@ -32,13 +31,13 @@ const HomePage: React.FC = () => {
     );
   };
 
-  // Functional component to handle state changein Location Check Box
-  const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Functional component to handle state changein Arrangement Check Box
+  const handleArrangementChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setLocation((prevLocation) =>
-      prevLocation.includes(value)
-        ? prevLocation.filter((loc) => loc !== value)
-        : [...prevLocation, value],
+    setArrangement((prevArrangement) =>
+      prevArrangement.includes(value)
+        ? prevArrangement.filter((arr) => arr !== value)
+        : [...prevArrangement, value],
     );
   };
 
@@ -61,22 +60,21 @@ const HomePage: React.FC = () => {
    * otherwise an error message presents at the bottom of the page. */
   const validateForm = () => {
     if (jobType.length === 0) {
-      setErrorMessage("Please select at least one job type.");
+      window.alert("Please select at least one job type.");
       return false;
     }
-    if (location.length === 0) {
-      setErrorMessage("Please select at least one job location.");
+    if (arrangement.length === 0) {
+      window.alert("Please select at least one job arrangement.");
       return false;
     }
     if (sector.length === 0) {
-      setErrorMessage("Please select at least one sector.");
+      window.alert("Please select at least one sector.");
       return false;
     }
     if (!experience) {
-      setErrorMessage("Please select your work experience.");
+      window.alert("Please select your work experience.");
       return false;
     }
-    setErrorMessage("");
     return true;
   };
 
@@ -97,7 +95,7 @@ const HomePage: React.FC = () => {
    * a try-catch statement */
   const handleConfirm = async () => {
     try {
-      const info = { jobType, location, sector, experience, textInput };
+      const info = { jobType, arrangement, sector, experience, textInput };
       // Set the PORT for the Flask backend to 5001
       const backendAPI = process.env.REACT_APP_BACKEND_API;
       // Set our PORT to match the Cloud configuration
@@ -106,11 +104,13 @@ const HomePage: React.FC = () => {
       // A confirmation message that will print to browser inspect window
       console.log("Jobs info transferred to Flask backend:", info);
       navigate("/job-results", {
+        // state defines how the response from backend is stored in the frontend
         state: { inputInfo: info, jobRankings: data },
       });
     } catch (error: any) {
       // An error message in the event the form submission fails
       console.error("Failed to submit form due to error.", error);
+      window.alert("Error encountered, please try again later.");
     }
     setShowModal(false);
   };
@@ -130,22 +130,22 @@ const HomePage: React.FC = () => {
       </p>
       <form>
         <p>
-          <strong>1.) What type of job are you looking for?</strong>
+          <strong>1.) What type of job are you looking for? [Required]</strong>
         </p>
         <input
           type="checkbox"
-          value="Full time"
-          checked={jobType.includes("Full time")}
+          value="Full-time"
+          checked={jobType.includes("Full-time")}
           onChange={handleJobTypeChange}
         />
-        Full time&nbsp;&nbsp;&nbsp;
+        Full-time&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
-          value="Part time"
-          checked={jobType.includes("Part time")}
+          value="Part-time"
+          checked={jobType.includes("Part-time")}
           onChange={handleJobTypeChange}
         />
-        Part time&nbsp;&nbsp;&nbsp;
+        Part-time&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Freelance"
@@ -162,39 +162,35 @@ const HomePage: React.FC = () => {
         Internship&nbsp;&nbsp;&nbsp;
         <p>
           <strong>
-            2.) Please tell us about your job location preferences.
+            2.) Please tell us about your job arrangement preferences.
+            [Required]
           </strong>
         </p>
         <input
           type="checkbox"
           value="Remote"
-          checked={location.includes("Remote")}
-          onChange={handleLocationChange}
+          checked={arrangement.includes("Remote")}
+          onChange={handleArrangementChange}
         />
         Remote&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="On-site"
-          checked={location.includes("On-site")}
-          onChange={handleLocationChange}
+          checked={arrangement.includes("On-site")}
+          onChange={handleArrangementChange}
         />
         On-site&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
           value="Hybrid"
-          checked={location.includes("Hybrid")}
-          onChange={handleLocationChange}
+          checked={arrangement.includes("Hybrid")}
+          onChange={handleArrangementChange}
         />
         Hybrid&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Any"
-          checked={location.includes("Any")}
-          onChange={handleLocationChange}
-        />
-        Any&nbsp;&nbsp;&nbsp;
         <p>
-          <strong>3.) Which of the following sector interests you most?</strong>
+          <strong>
+            3.) Which of the following sector interests you most? [Required]
+          </strong>
         </p>
         <input
           type="checkbox"
@@ -239,7 +235,9 @@ const HomePage: React.FC = () => {
         />
         Education&nbsp;&nbsp;&nbsp;
         <p>
-          <strong>4.) How would you characterize your work experience?</strong>
+          <strong>
+            4.) How would you characterize your work experience? [Required]
+          </strong>
         </p>
         <label>
           <input
@@ -255,36 +253,36 @@ const HomePage: React.FC = () => {
           <input
             type="radio"
             name="experience"
-            value="1-3 years"
-            checked={experience === "1-3 years"}
+            value="Junior-level"
+            checked={experience === "Junior-level"}
             onChange={handleExperienceChange}
           />
-          1-3 years&nbsp;&nbsp;&nbsp;
+          Junior-level&nbsp;&nbsp;&nbsp;
         </label>
         <label>
           <input
             type="radio"
             name="experience"
-            value="3-5 years"
-            checked={experience === "3-5 years"}
+            value="Intermediate-level"
+            checked={experience === "Intermediate-level"}
             onChange={handleExperienceChange}
           />
-          3-5 years&nbsp;&nbsp;&nbsp;
+          Intermediate-level&nbsp;&nbsp;&nbsp;
         </label>
         <label>
           <input
             type="radio"
             name="experience"
-            value="5+ years"
-            checked={experience === "5+ years"}
+            value="Senior-level"
+            checked={experience === "Senior-level"}
             onChange={handleExperienceChange}
           />
-          5+ years&nbsp;&nbsp;&nbsp;
+          Senior-level&nbsp;&nbsp;&nbsp;
         </label>
         <p>
           <strong>
             5.) Please tell us anything else to help with your job search:
-            (optional)
+            [Optional]
           </strong>
         </p>
         <textarea
@@ -302,7 +300,7 @@ const HomePage: React.FC = () => {
             type="button"
             onClick={() => {
               setJobType([]);
-              setLocation([]);
+              setArrangement([]);
               setSector([]);
               setExperience("");
               setTextInput("");
@@ -311,7 +309,6 @@ const HomePage: React.FC = () => {
             Reset
           </button>
         </div>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
       <ConfirmationModal
         show={showModal}

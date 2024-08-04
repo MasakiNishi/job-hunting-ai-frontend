@@ -3,8 +3,8 @@
  * Project Partner: Professor Gates
  * CS 467 Portfolio Project */
 
-/* JobResults.tsx represents page that will ultimately display job results
-to our users and will receive a list of personalized jobs from the backend. */
+/* JobResults.tsx represents page that displays job results
+to our users by receiving a list of personalized jobs from the backend. */
 
 import React from "react";
 import { useLocation } from "react-router-dom";
@@ -13,10 +13,10 @@ import { useLocation } from "react-router-dom";
 const JobResults: React.FC = () => {
   const location = useLocation();
   const { inputInfo, jobRankings } = location.state || {};
-  // An array to avoid printing the textInput
+  // An array to avoid printing the textInput (exclude it)
   const inputDetails = [
     { label: "Job Type", value: inputInfo.jobType },
-    { label: "Location", value: inputInfo.location },
+    { label: "Location", value: inputInfo.arrangement },
     { label: "Sector", value: inputInfo.sector },
     { label: "Experience", value: inputInfo.experience },
   ];
@@ -40,7 +40,7 @@ const JobResults: React.FC = () => {
       <div className="input-details">
         {inputDetails.map((detail, index) => (
           <span key={index} className="detail-item">
-            <strong>{detail.label}:&nbsp; </strong>
+            <strong>{detail.label}:&nbsp; </strong>&nbsp;
             {Array.isArray(detail.value)
               ? detail.value.join(", ")
               : detail.value}
@@ -54,11 +54,22 @@ const JobResults: React.FC = () => {
         </strong>
       </p>
       {/* A temporary means to populate the data until AI integegration*/}
-      <ol>
-        {jobRankings.map((job: any, index: number) => (
-          <li key={index}>&nbsp;{job.title}</li>
-        ))}
-      </ol>
+      <div className="job-results">
+        <ol>
+          {jobRankings.map((job: any, index: number) => (
+            <li key={index}>
+              &nbsp;<strong>{job.title}</strong>, &nbsp;{job.company}, &nbsp;
+              {job.arrangement}, &nbsp;{job.jobType}, &nbsp;
+              {job.location}, &nbsp;
+              {job.sector}, &nbsp;{job.experience}, &nbsp;
+              <a href={job.job_url} target="_blank" rel="noopener noreferrer">
+                {job.url_site}
+              </a>
+              .
+            </li>
+          ))}
+        </ol>
+      </div>
       <button onClick={() => window.history.back()}>Back to Form</button>
     </div>
   );
