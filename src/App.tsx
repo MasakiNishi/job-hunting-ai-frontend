@@ -21,7 +21,9 @@ const App: React.FC = () => {
     <BrowserRouter>
       <header>
         {/* Let's add the jobs favicon and banner */}
-        <section className="main-logo"><img src="jhaifavicon.png" alt="My favicon" /></section>
+        <section className="main-logo">
+          <img src="jhaifavicon.png" alt="My favicon" />
+        </section>
         <span className="main-title">Job Hunting AI Web Tool</span>
         <Navigation />
       </header>

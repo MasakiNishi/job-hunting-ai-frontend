@@ -130,7 +130,9 @@ const HomePage: React.FC = () => {
       </p>
       <form>
         <p>
-          <strong>1. What type of job are you looking for? [Required]</strong>
+          <strong>
+            1. What type of job are you looking for? [Required]
+          </strong>
         </p>
         <input
           type="checkbox"
@@ -162,8 +164,7 @@ const HomePage: React.FC = () => {
         Internship&nbsp;&nbsp;&nbsp;
         <p>
           <strong>
-            2. Please tell us about your job arrangement preferences.
-            [Required]
+            2. Please tell us about your job arrangement preferences. [Required]
           </strong>
         </p>
         <input

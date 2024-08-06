@@ -13,7 +13,9 @@ function Navigation() {
   // Get the current location using the useLocation hook
   return (
     <nav>
-      <Link to="/" className="job-search">Job Search</Link>
+      <Link to="/" className="job-search">
+        Job Search
+      </Link>
       <Link to="/about">About</Link>
       <Link to="/links">Links</Link>
     </nav>
