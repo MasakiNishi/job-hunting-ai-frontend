@@ -123,14 +123,14 @@ const HomePage: React.FC = () => {
   // Form Data:
   return (
     <div className="outer-container">
-      <h2>Find Your Dream Job!</h2>
+      <h1 className="home-title">Find Your Dream Job!</h1>
       <p className="instructions">
         Please answer the below questions to discover personalized job
         recommendations.
       </p>
       <form>
         <p>
-          <strong>1.) What type of job are you looking for? [Required]</strong>
+          <strong>1. What type of job are you looking for? [Required]</strong>
         </p>
         <input
           type="checkbox"
@@ -162,7 +162,7 @@ const HomePage: React.FC = () => {
         Internship&nbsp;&nbsp;&nbsp;
         <p>
           <strong>
-            2.) Please tell us about your job arrangement preferences.
+            2. Please tell us about your job arrangement preferences.
             [Required]
           </strong>
         </p>
@@ -189,7 +189,7 @@ const HomePage: React.FC = () => {
         Hybrid&nbsp;&nbsp;&nbsp;
         <p>
           <strong>
-            3.) Which of the following sector interests you most? [Required]
+            3. Which of the following sector interests you most? [Required]
           </strong>
         </p>
         <input
@@ -236,7 +236,7 @@ const HomePage: React.FC = () => {
         Education&nbsp;&nbsp;&nbsp;
         <p>
           <strong>
-            4.) How would you characterize your work experience? [Required]
+            4. How would you characterize your work experience? [Required]
           </strong>
         </p>
         <label>
@@ -281,7 +281,7 @@ const HomePage: React.FC = () => {
         </label>
         <p>
           <strong>
-            5.) Please tell us anything else to help with your job search:
+            5. Please tell us anything else to help with your job search:
             [Optional]
           </strong>
         </p>
