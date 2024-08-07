@@ -10,7 +10,7 @@ import React from "react";
 
 const Links: React.FC = () => {
   return (
-    <div className="outer-container">
+    <div className="main-text" id="links-text">
       <h2>Top Jobs Websites</h2>
       <p>
         <a href="https://www.linkedin.com">LinkedIn</a>

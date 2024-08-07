@@ -32,23 +32,21 @@ const JobResults: React.FC = () => {
   return (
     <div className="outer-container">
       <h1 id="results-title">Your Personalized Results</h1>
-      <p>
-        <strong>Based on your selections:</strong>
-      </p>{" "}
-      <br></br>
-      {/* Reproduce the inputData here from the inputDetails array*/}
       <div className="input-details">
+      <p id="selections">
+        <strong>Based on your selections:</strong>
+      </p>
+      {/* Reproduce the inputData here from the inputDetails array*/}
         {inputDetails.map((detail, index) => (
           <span key={index} className="detail-item">
             <strong>{detail.label}:&nbsp; </strong>&nbsp;
             {Array.isArray(detail.value)
-              ? detail.value.join(", ")
+              ? detail.value.join(",    ")
               : detail.value}
-            <input type="checkbox" checked readOnly className="checkbox" />
           </span>
         ))}
       </div>
-      <div className="job-results">
+      <div className="main-text">
         <p>
           <strong>
             Please find your 5 ranked job listing recommendations below!

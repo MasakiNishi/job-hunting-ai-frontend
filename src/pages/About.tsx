@@ -10,8 +10,8 @@ import React from "react";
 
 const About: React.FC = () => {
   return (
-    <div className="outer-container">
-      <h2>Learn More!</h2>
+    <div className="main-text">
+      <h1>Learn More!</h1>
       <p className="about-para">
         In the modern job market, finding the right job can be a daunting task,
         especially for students and new job seekers. Our project aims to
