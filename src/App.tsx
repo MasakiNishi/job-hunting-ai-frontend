@@ -41,9 +41,11 @@ const App: React.FC = () => {
           &copy; 2024 Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander
           Wong
         </p>
-        <a href="/help">
-          <label className="getHelp"> </label>
-        </a>
+        <section className="help-icon">
+          <a href="/help">
+            <img src="get_help.png" alt="Get Help" />
+          </a>
+        </section>
       </footer>
     </BrowserRouter>
   );
