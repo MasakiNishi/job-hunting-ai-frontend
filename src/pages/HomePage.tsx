@@ -123,12 +123,12 @@ const HomePage: React.FC = () => {
   // Form Data:
   return (
     <div className="outer-container">
-      <h1 className="home-title">Find Your Dream Job!</h1>
+      <h1 id="home-title">Find Your Dream Job!</h1>
       <p className="instructions">
         Please answer the below questions to discover personalized job
         recommendations.
       </p>
-      <form>
+      <form id="home-form">
         <p>
           <strong>1. What type of job are you looking for? [Required]</strong>
         </p>

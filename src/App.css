@@ -12,7 +12,7 @@
 /* --- Custom Colors --- */
 :root {
   --black: #000000; /* Standard Black */
-  --blue: #209CEE; /* From Figma PT, but could change */
+  --blue: #ced8ed;
   --white: #FFFFFF;
 }
 
@@ -53,12 +53,12 @@ nav {
   font-size: 20px;
 }
 
-nav a {
+a {
   text-decoration: none;
   color: #000000;
 }
 
-nav a:hover {
+a:hover {
   color: #698be1;
 }
 
@@ -66,11 +66,18 @@ nav a:hover {
   font-weight: bold;
 }
 
-.home-title {
+#home-title {
   font-family: "PT Serif", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 96px;
+}
+
+#results-title {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 72px;
 }
 
 /******************************************
@@ -79,15 +86,25 @@ nav a:hover {
 
 /* general section layout */
 
-
-/* header */
-
 header {
-  padding: 25px 30px;
+  padding: 25px 10px 0;
   width: 100%;
   height: 100px;
   border-bottom: 1.5px solid gray;
 }
+
+footer {
+  background-color: var(--blue);
+  padding: 40px 30px 0;
+  height: 130px;
+}
+
+.App {
+  margin: 0 25px;
+  padding: 20px 0;
+}
+
+/* header */
 
 header * {
   float: left;
@@ -107,6 +124,7 @@ header span {
 
 header nav {
   float: right;
+  margin-right: 30px;
 }
 
 .nav-link {
@@ -115,15 +133,39 @@ header nav {
 
 /* footer */
 
-footer {
-  display: block;
+footer * {
+  float: left;
+}
+
+footer span {
+  margin-top: 20px;
+}
+
+footer section {
+  align-items: center;
+  width: 70px;
+  float: right;
+  margin-right: 30px;
 }
 
 footer img {
-  width: 52px;
+  width: 48px;
+  margin-left: 8px;
+  margin-bottom: 3px;
 }
 
 /* Home page */
 
+#home-form {
+  padding-top: 20px;
+  width: 44%;
+  margin-left: 28%;
+  margin-right: 28%;
+}
+
 /* Results page */
+
+/* About page */
+
+
 

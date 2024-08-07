@@ -31,7 +31,7 @@ const JobResults: React.FC = () => {
   // Tsx code to display the job results to user
   return (
     <div className="outer-container">
-      <h2>Your Personalized Results</h2>
+      <h1 id="results-title">Your Personalized Results</h1>
       <p>
         <strong>Based on your selections:</strong>
       </p>{" "}
@@ -48,13 +48,13 @@ const JobResults: React.FC = () => {
           </span>
         ))}
       </div>
-      <p>
-        <strong>
-          Please find your 5 ranked job listing recommendations below!
-        </strong>
-      </p>
-      {/* A temporary means to populate the data until AI integegration*/}
       <div className="job-results">
+        <p>
+          <strong>
+            Please find your 5 ranked job listing recommendations below!
+          </strong>
+        </p>
+        {/* A temporary means to populate the data until AI integegration*/}
         <ol>
           {jobRankings.map((job: any, index: number) => (
             <li key={index}>
@@ -69,8 +69,8 @@ const JobResults: React.FC = () => {
             </li>
           ))}
         </ol>
-      </div>
       <button onClick={() => window.history.back()}>Back to Form</button>
+      </div>
     </div>
   );
 };

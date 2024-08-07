@@ -37,13 +37,14 @@ const App: React.FC = () => {
         </Routes>
       </div>
       <footer>
-        <p>
+        <span>
           &copy; 2024 Masaki Nishi, Christian McKinnon, Susan Joh, and Alexander
           Wong
-        </p>
+        </span>
         <section className="help-icon">
           <a href="/help">
-            <img src="get_help.png" alt="Get Help" />
+            <img src="help.ico" alt="Get Help" />
+            Get Help
           </a>
         </section>
       </footer>
