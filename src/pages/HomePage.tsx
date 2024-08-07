@@ -165,7 +165,8 @@ const HomePage: React.FC = () => {
         <div className="questions">
           <p>
             <strong>
-              2. Please tell us about your job arrangement preferences. [Required]
+              2. Please tell us about your job arrangement preferences.
+              [Required]
             </strong>
           </p>
           <input

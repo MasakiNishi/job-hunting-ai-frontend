@@ -33,10 +33,10 @@ const JobResults: React.FC = () => {
     <div className="outer-container">
       <h1 id="results-title">Your Personalized Results</h1>
       <div className="input-details">
-      <p id="selections">
-        <strong>Based on your selections:</strong>
-      </p>
-      {/* Reproduce the inputData here from the inputDetails array*/}
+        <p id="selections">
+          <strong>Based on your selections:</strong>
+        </p>
+        {/* Reproduce the inputData here from the inputDetails array*/}
         {inputDetails.map((detail, index) => (
           <span key={index} className="detail-item">
             <strong>{detail.label}:&nbsp; </strong>&nbsp;
@@ -65,7 +65,7 @@ const JobResults: React.FC = () => {
             </li>
           ))}
         </ol>
-      <button onClick={() => window.history.back()}>Back to Form</button>
+        <button onClick={() => window.history.back()}>Back to Form</button>
       </div>
     </div>
   );
