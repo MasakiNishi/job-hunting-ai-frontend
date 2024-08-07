@@ -10,8 +10,8 @@ import React from "react";
 
 const Help: React.FC = () => {
   return (
-    <div className="outer-container">
-      <h2>Get Help: FAQs</h2>
+    <div className="main-text">
+      <h1>Get Help: FAQs</h1>
       <p className="about-para">
         <strong>Q:</strong> How can I use this website?<br></br>
         <br></br>

@@ -31,33 +31,29 @@ const JobResults: React.FC = () => {
   // Tsx code to display the job results to user
   return (
     <div className="outer-container">
-      <h2>Your Personalized Results</h2>
-      <p>
-        <strong>Based on your selections:</strong>
-      </p>{" "}
-      <br></br>
-      {/* Reproduce the inputData here from the inputDetails array*/}
+      <h1 id="results-title">Your Personalized Results</h1>
       <div className="input-details">
+        <p id="selections">
+          <strong>Based on your selections:</strong>
+        </p>
+        {/* Reproduce the inputData here from the inputDetails array*/}
         {inputDetails.map((detail, index) => (
           <span key={index} className="detail-item">
             <strong>{detail.label}:&nbsp; </strong>&nbsp;
             {Array.isArray(detail.value)
-              ? detail.value.join(", ")
+              ? detail.value.join(",    ")
               : detail.value}
-            <input type="checkbox" checked readOnly className="checkbox" />
           </span>
         ))}
       </div>
-      <p>
-        <strong>
+      <div className="main-text">
+        <p id="result-title">
           Please find your 5 ranked job listing recommendations below!
-        </strong>
-      </p>
-      {/* A temporary means to populate the data until AI integegration*/}
-      <div className="job-results">
+        </p>
+        {/* A temporary means to populate the data until AI integegration*/}
         <ol>
           {jobRankings.map((job: any, index: number) => (
-            <li key={index}>
+            <li key={index} className="results-objects">
               &nbsp;<strong>{job.title}</strong>, &nbsp;{job.company}, &nbsp;
               {job.arrangement}, &nbsp;{job.jobType}, &nbsp;
               {job.location}, &nbsp;
@@ -69,8 +65,8 @@ const JobResults: React.FC = () => {
             </li>
           ))}
         </ol>
+        <button onClick={() => window.history.back()}>Back to Form</button>
       </div>
-      <button onClick={() => window.history.back()}>Back to Form</button>
     </div>
   );
 };
