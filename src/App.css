@@ -137,8 +137,7 @@ footer {
 }
 
 .App {
-  margin: 0 25px;
-  padding: 20px 0;
+  margin: 100px 25px;
 }
 
 /* header */
@@ -204,6 +203,13 @@ footer img {
 
 /* Home page */
 
+#home-title {
+  padding-top: 40px;
+  margin-left: 15%;
+  max-width: 500px;
+  text-align: center;
+}
+
 .textbox-container {
   width: 640px;
   height: 70px; 
@@ -218,6 +224,10 @@ footer img {
 
 .instructions {
   margin-left: 50%;
+}
+
+.questions {
+  margin-bottom: 48px;
 }
 
 /* POP-UP button on Home page */
@@ -254,6 +264,10 @@ footer img {
 
 /* Results page */
 
+#results-title {
+  margin-left: 20px;
+}
+
 .input-details {
   text-align: right;
   margin-right: 40px;
@@ -265,7 +279,18 @@ footer img {
 }
 
 .detail-item {
-  margin-right: 3%;
+  margin-right: 2%;
+  font-size: 18px;
+}
+
+#result-title {
+  margin-top: 50px;
+  margin-bottom: 48px;
+  font-size: 22px;
+}
+
+.results-objects {
+  margin-bottom: 40px;
 }
 
 /* About page */

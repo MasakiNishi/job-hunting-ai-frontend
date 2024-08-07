@@ -129,168 +129,178 @@ const HomePage: React.FC = () => {
         recommendations.
       </p>
       <form className="main-text">
-        <p>
-          <strong>1. What type of job are you looking for? [Required]</strong>
-        </p>
-        <input
-          type="checkbox"
-          value="Full-time"
-          checked={jobType.includes("Full-time")}
-          onChange={handleJobTypeChange}
-        />
-        Full-time&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Part-time"
-          checked={jobType.includes("Part-time")}
-          onChange={handleJobTypeChange}
-        />
-        Part-time&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Freelance"
-          checked={jobType.includes("Freelance")}
-          onChange={handleJobTypeChange}
-        />
-        Freelance&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Internship"
-          checked={jobType.includes("Internship")}
-          onChange={handleJobTypeChange}
-        />
-        Internship&nbsp;&nbsp;&nbsp;
-        <p>
-          <strong>
-            2. Please tell us about your job arrangement preferences. [Required]
-          </strong>
-        </p>
-        <input
-          type="checkbox"
-          value="Remote"
-          checked={arrangement.includes("Remote")}
-          onChange={handleArrangementChange}
-        />
-        Remote&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="On-site"
-          checked={arrangement.includes("On-site")}
-          onChange={handleArrangementChange}
-        />
-        On-site&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Hybrid"
-          checked={arrangement.includes("Hybrid")}
-          onChange={handleArrangementChange}
-        />
-        Hybrid&nbsp;&nbsp;&nbsp;
-        <p>
-          <strong>
-            3. Which of the following sector interests you most? [Required]
-          </strong>
-        </p>
-        <input
-          type="checkbox"
-          value="Technology"
-          checked={sector.includes("Technology")}
-          onChange={handleSectorChange}
-        />
-        Technology&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Finance"
-          checked={sector.includes("Finance")}
-          onChange={handleSectorChange}
-        />
-        Finance&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Healthcare"
-          checked={sector.includes("Healthcare")}
-          onChange={handleSectorChange}
-        />
-        Healthcare&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Retail"
-          checked={sector.includes("Retail")}
-          onChange={handleSectorChange}
-        />
-        Retail&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Energy"
-          checked={sector.includes("Energy")}
-          onChange={handleSectorChange}
-        />
-        Energy&nbsp;&nbsp;&nbsp;
-        <input
-          type="checkbox"
-          value="Education"
-          checked={sector.includes("Education")}
-          onChange={handleSectorChange}
-        />
-        Education&nbsp;&nbsp;&nbsp;
-        <p>
-          <strong>
-            4. How would you characterize your work experience? [Required]
-          </strong>
-        </p>
-        <label>
+        <div className="questions">
+          <p>
+            <strong>1. What type of job are you looking for? [Required]</strong>
+          </p>
           <input
-            type="radio"
-            name="experience"
-            value="Entry-level"
-            checked={experience === "Entry-level"}
-            onChange={handleExperienceChange}
+            type="checkbox"
+            value="Full-time"
+            checked={jobType.includes("Full-time")}
+            onChange={handleJobTypeChange}
           />
-          Entry-level&nbsp;&nbsp;&nbsp;
-        </label>
-        <label>
+          Full-time&nbsp;&nbsp;&nbsp;
           <input
-            type="radio"
-            name="experience"
-            value="Junior-level"
-            checked={experience === "Junior-level"}
-            onChange={handleExperienceChange}
+            type="checkbox"
+            value="Part-time"
+            checked={jobType.includes("Part-time")}
+            onChange={handleJobTypeChange}
           />
-          Junior-level&nbsp;&nbsp;&nbsp;
-        </label>
-        <label>
+          Part-time&nbsp;&nbsp;&nbsp;
           <input
-            type="radio"
-            name="experience"
-            value="Intermediate-level"
-            checked={experience === "Intermediate-level"}
-            onChange={handleExperienceChange}
+            type="checkbox"
+            value="Freelance"
+            checked={jobType.includes("Freelance")}
+            onChange={handleJobTypeChange}
           />
-          Intermediate-level&nbsp;&nbsp;&nbsp;
-        </label>
-        <label>
+          Freelance&nbsp;&nbsp;&nbsp;
           <input
-            type="radio"
-            name="experience"
-            value="Senior-level"
-            checked={experience === "Senior-level"}
-            onChange={handleExperienceChange}
+            type="checkbox"
+            value="Internship"
+            checked={jobType.includes("Internship")}
+            onChange={handleJobTypeChange}
           />
-          Senior-level&nbsp;&nbsp;&nbsp;
-        </label>
-        <p>
-          <strong>
-            5. Please tell us anything else to help with your job search:
-            [Optional]
-          </strong>
-        </p>
-        <textarea
-          className="textbox-container"
-          value={textInput}
-          onChange={(e) => setTextInput(e.target.value)}
-          maxLength={200}
-          placeholder="Limit: 200 characters"
-        />
+          Internship&nbsp;&nbsp;&nbsp;
+        </div>
+        <div className="questions">
+          <p>
+            <strong>
+              2. Please tell us about your job arrangement preferences. [Required]
+            </strong>
+          </p>
+          <input
+            type="checkbox"
+            value="Remote"
+            checked={arrangement.includes("Remote")}
+            onChange={handleArrangementChange}
+          />
+          Remote&nbsp;&nbsp;&nbsp;
+          <input
+            type="checkbox"
+            value="On-site"
+            checked={arrangement.includes("On-site")}
+            onChange={handleArrangementChange}
+          />
+          On-site&nbsp;&nbsp;&nbsp;
+          <input
+            type="checkbox"
+            value="Hybrid"
+            checked={arrangement.includes("Hybrid")}
+            onChange={handleArrangementChange}
+          />
+          Hybrid&nbsp;&nbsp;&nbsp;
+        </div>
+        <div className="questions">
+          <p>
+            <strong>
+              3. Which of the following sector interests you most? [Required]
+            </strong>
+          </p>
+          <input
+            type="checkbox"
+            value="Technology"
+            checked={sector.includes("Technology")}
+            onChange={handleSectorChange}
+          />
+          Technology&nbsp;&nbsp;&nbsp;
+          <input
+            type="checkbox"
+            value="Finance"
+            checked={sector.includes("Finance")}
+            onChange={handleSectorChange}
+          />
+          Finance&nbsp;&nbsp;&nbsp;
+          <input
+            type="checkbox"
+            value="Healthcare"
+            checked={sector.includes("Healthcare")}
+            onChange={handleSectorChange}
+          />
+          Healthcare&nbsp;&nbsp;&nbsp;
+          <input
+            type="checkbox"
+            value="Retail"
+            checked={sector.includes("Retail")}
+            onChange={handleSectorChange}
+          />
+          Retail&nbsp;&nbsp;&nbsp;
+          <input
+            type="checkbox"
+            value="Energy"
+            checked={sector.includes("Energy")}
+            onChange={handleSectorChange}
+          />
+          Energy&nbsp;&nbsp;&nbsp;
+          <input
+            type="checkbox"
+            value="Education"
+            checked={sector.includes("Education")}
+            onChange={handleSectorChange}
+          />
+          Education&nbsp;&nbsp;&nbsp;
+        </div>
+        <div className="questions">
+          <p>
+            <strong>
+              4. How would you characterize your work experience? [Required]
+            </strong>
+          </p>
+          <label>
+            <input
+              type="radio"
+              name="experience"
+              value="Entry-level"
+              checked={experience === "Entry-level"}
+              onChange={handleExperienceChange}
+            />
+            Entry-level&nbsp;&nbsp;&nbsp;
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="experience"
+              value="Junior-level"
+              checked={experience === "Junior-level"}
+              onChange={handleExperienceChange}
+            />
+            Junior-level&nbsp;&nbsp;&nbsp;
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="experience"
+              value="Intermediate-level"
+              checked={experience === "Intermediate-level"}
+              onChange={handleExperienceChange}
+            />
+            Intermediate-level&nbsp;&nbsp;&nbsp;
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="experience"
+              value="Senior-level"
+              checked={experience === "Senior-level"}
+              onChange={handleExperienceChange}
+            />
+            Senior-level&nbsp;&nbsp;&nbsp;
+          </label>
+        </div>
+        <div className="questions">
+          <p>
+            <strong>
+              5. Please tell us anything else to help with your job search:
+              [Optional]
+            </strong>
+          </p>
+          <textarea
+            className="textbox-container"
+            value={textInput}
+            onChange={(e) => setTextInput(e.target.value)}
+            maxLength={200}
+            placeholder="Limit: 200 characters"
+          />
+        </div>
         <div className="button-container">
           <button type="button" onClick={() => handleSubmit()}>
             Submit

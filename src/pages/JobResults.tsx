@@ -47,15 +47,13 @@ const JobResults: React.FC = () => {
         ))}
       </div>
       <div className="main-text">
-        <p>
-          <strong>
-            Please find your 5 ranked job listing recommendations below!
-          </strong>
+        <p id="result-title">
+          Please find your 5 ranked job listing recommendations below!
         </p>
         {/* A temporary means to populate the data until AI integegration*/}
         <ol>
           {jobRankings.map((job: any, index: number) => (
-            <li key={index}>
+            <li key={index} className="results-objects">
               &nbsp;<strong>{job.title}</strong>, &nbsp;{job.company}, &nbsp;
               {job.arrangement}, &nbsp;{job.jobType}, &nbsp;
               {job.location}, &nbsp;
